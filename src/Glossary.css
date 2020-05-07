@@ -1,0 +1,66 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.95);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #f1f1f1;
+    border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #008744;
+    cursor: pointer;
+}
+
+.mainContainer {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    width: 100%;
+    height: 10vh;
+    /* position: relative; */
+}
+
+.bodyContainer {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.listContainer {
+    width: 40vw;
+    height: 100%;
+    position: relative;
+}
+
+.cardContainer {
+    width: 60vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    width: 100%;
+    height: 15vh;
+}
