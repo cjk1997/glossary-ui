@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import Navbar from './Navbar';
+import Lists from './Lists';
+import Flashcards from './Flashcards';
+import './Glossary.css';
+import Flashcard from './Flashcard';
 
 class Glossary extends Component {
     constructor(props) {
@@ -10,6 +15,7 @@ class Glossary extends Component {
 
     getTerms = () => {
         const url = process.env.REACT_APP_API_URL;
+        console.log(url);
         fetch(`${url}`)
             .then(response => response.json())
             .then(data => this.setState({ terms : data }))
@@ -39,17 +45,39 @@ class Glossary extends Component {
     };
 
     render() {
+        console.log(this.state.terms);
         return (
             <>
-                <div className="bodyContainer">
-                    <div className="navbar"><Navbar/></div>
-                    <div className="flashcards"><Flashcards/></div>
-                    <div className="listContainer"><Lists/></div>
+                <div className="mainContainer">
+                    <div className="navbar"></div>
+                    <div className="bodyContainer">
+                        <div className="listContainer"></div>
+                        <div className="cardContainer"><Flashcards refresh={this.getTerms} terms={this.state.terms}/></div>
+                    </div>
                     <div className="footer"/>
                 </div>
             </>
         );
     };
+
+
+
+
+
+    // render() {
+    //     return (
+    //         <>
+    //             <div className="mainContainer">
+    //                 <div className="navbar"><Navbar/></div>
+    //                 <div className="bodyContainer">
+    //                     <div className="listContainer"><Lists terms={this.state.terms}/></div>
+    //                     <div className="flashcards"><Flashcards terms={this.state.terms}/></div>
+    //                 </div>
+    //                 <div className="footer"/>
+    //             </div>
+    //         </>
+    //     );
+    // };
 };
 
 export default Glossary;
